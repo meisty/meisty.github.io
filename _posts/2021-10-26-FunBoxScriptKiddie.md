@@ -3,7 +3,7 @@ layout: post
 title: Funbox Scriptkiddie Vulnhub VM Walkthrough
 ---
 
-## A walkthrough of the [Funbox Scriptkiddie](https://www.vulnhub.com/entry/funbox-scriptkiddie,725/) ScriptKiddie VM from Vulnhub
+## A walkthrough of the [Funbox Scriptkiddie](https://www.vulnhub.com/entry/funbox-scriptkiddie,725/) VM from Vulnhub
 
 This is labelled as a very easy box on vulnhub so thought it would be a good one for my first walkthrough on this blog. 
 
