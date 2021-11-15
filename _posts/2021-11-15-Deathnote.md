@@ -7,10 +7,10 @@ title: Deathnote Vulnhub VM Walkthrough
 
 This is labelled as an easy box on vulnhub.  
 
-Initially I ran 
+Initially I ran nmap to see what ports are open
 
-[<img src="../images/deathnnote/nmap.png"
-  style="width: 800px;"/>](../images/deathnote/nmap.png)
+[<img src="../images/deathnote/nmap2.png"
+  style="width: 800px;"/>](../images/deathnote/nmap2.png)
 
 There was port 22 SSH and port 80 HTTP open.  I took a look at the website hosted on port 80 and added the domain name it mentioned to my /etc/hosts file deathnote.vuln.  
 
