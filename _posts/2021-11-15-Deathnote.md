@@ -65,7 +65,18 @@ From the hint I could see I needed to decode the value in case.wav using cyberch
 [<img src="../images/deathnote/cyberchef.png"
   style="width: 800px;"/>](../images/deathnote/cyberchef.png)
   
-After logging into ssh with kira I checked what kira could run as sudo, all :) 
+After logging into ssh with kira I noticed the kira.txt file in /home/kira and read it.  I then decoded the base64 value to see a hint on where the location of /opt/L but also another location /var/misa. That turned out to just be a dead end. 
+
+[<img src="../images/deathnote/kira_txt.png"
+  style="width: 800px;"/>](../images/deathnote/kira_txt.png)
+  
+[<img src="../images/deathnote/kira_txt_decode.png"
+  style="width: 800px;"/>](../images/deathnote/kira_txt_decode.png)
+  
+[<img src="../images/deathnote/misa.png"
+  style="width: 800px;"/>](../images/deathnote/misa.png)
+
+I then checked what kira could run as sudo, all :) 
 
 [<img src="../images/deathnote/kira_sudo.png"
   style="width: 800px;"/>](../images/deathnote/kira_sudo.png)
