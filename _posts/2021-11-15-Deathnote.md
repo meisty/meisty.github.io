@@ -46,7 +46,12 @@ I found user.txt in l's home directory.
 
 [<img src="../images/deathnote/user.png"
   style="width: 800px;"/>](../images/deathnote/user.png)
-  
+
+I recognised the encoding shown from user.txt and ran it through a brainfuck interpreter.
+
+[<img src="../images/deathnote/brainfuck.png"
+  style="width: 800px;"/>](../images/deathnote/brainfuck.png)
+
 But l is not able to run sudo.  So I did some poking around and found something interesting in /opt/L/fake-notebook-rule
 
 [<img src="../images/deathnote/sudo.png"
@@ -62,8 +67,8 @@ From the hint I could see I needed to decode the value in case.wav using cyberch
   
 After logging into ssh with kira I checked what kira could run as sudo, all :) 
 
-[<img src="../images/deathnote/kira-sudo.png"
-  style="width: 800px;"/>](../images/deathnote/kira-sudo.png)
+[<img src="../images/deathnote/kira_sudo.png"
+  style="width: 800px;"/>](../images/deathnote/kira_sudo.png)
   
 I then ran /bin/bash with sudo to get a root shell and then I could read the root flag.  
   
