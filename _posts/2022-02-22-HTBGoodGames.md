@@ -5,7 +5,7 @@ title: Hack the Box GoodGames
 
 ## A writeup of the retired easy box from Hack the Box, GoodGames.  
 
-First things first, lets see what ports are open by running an nmap scan.
+First things first, lets see what ports are open by running a nmap scan.
 
 ```bash
 nmap -sC -sV 10.10.11.130 -oA nmap/good_games
