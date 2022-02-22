@@ -3,7 +3,7 @@ layout: post
 title: Hack the Box GoodGames
 ---
 
-## A walkthrough of the retired easy box from Hack the Box, GoodGames.  
+## A writeup of the retired easy box from Hack the Box, GoodGames.  
 
 First things first, lets see what ports are open by running an nmap scan.
 
