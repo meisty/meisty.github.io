@@ -85,7 +85,7 @@ Yup I was logged in.  A great example of why you should not re-use passwords. I 
 [<img src="../images/good_games/ssti_success.png"
   style="width: 800px;"/>](../images/good_games/ssti_success.png)
 
-As you can see after entering the payload `{{7*7}}` for full name, upon saving this the templating engine has interpreted this as 49.  So we have a SSTI vulnerability we can exploit.  After heading over to [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection) which is a great resource.  Within the SSTI section I found some payloads which could potentially give us RCE or remote code execution. 
+As you can see after entering the payload `{{ 7*7 }}` for full name, upon saving this the templating engine has interpreted this as 49.  So we have a SSTI vulnerability we can exploit.  After heading over to [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection) which is a great resource.  Within the SSTI section I found some payloads which could potentially give us RCE or remote code execution. 
 
 I used the payload `{{ self._TemplateReference__context.cycler.__init__.__globals__.os.popen('id').read() }}` and entered a date of birth and phone number and hit save. 
 
