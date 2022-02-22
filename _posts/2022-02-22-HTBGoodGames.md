@@ -24,7 +24,11 @@ I poked around on the website and there was nothing much of interest.  At this p
 [<img src="../images/good_games/burp.png"
   style="width: 800px;"/>](../images/good_games/burp.png)
   
-At the same time I had been running gobuster which ended up discovering the same pages `gobuster dir -u http://goodgames.htb -w /usr/share/seclists/discovery/web-content/raft-small-words.txt -o gobuster.out`.
+At the same time I had been running gobuster which ended up discovering the same pages 
+
+````bash
+gobuster dir -u http://goodgames.htb -w /usr/share/seclists/discovery/web-content/raft-small-words.txt -o gobuster.out
+```
 
 [<img src="../images/good_games/gobuster.png"
   style="width: 800px;"/>](../images/good_games/gobuster.png)
@@ -56,7 +60,7 @@ sqlmap -r test.req --batch --dump --threads 10
 [<img src="../images/good_games/dump.png"
   style="width: 800px;"/>](../images/good_games/dump.png)
   
-So I had some credentials for the admin account but the password appears to be hashed.  I could have tried to crack the hash using hashcat but I always like to check [crackstation](https://crackstation.net/).
+So I had some credentials for the admin account but the password appears to be hashed.  I could have tried to crack the hash using hashcat but I always like to check [crackstation](https://crackstation.net/) in case I can get an easy win if it has been cracked previously.
 
 [<img src="../images/good_games/crackstation.png"
   style="width: 800px;"/>](../images/good_games/crackstation.png)
