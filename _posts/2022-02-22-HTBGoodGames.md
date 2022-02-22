@@ -29,7 +29,7 @@ At the same time I had been running gobuster which ended up discovering the same
 [<img src="../images/good_games/gobuster.png"
   style="width: 800px;"/>](../images/good_games/gobuster.png)
   
-I ended up on the /signup page and attempted to login with admin@goodgames.htb:admin and was taken to a page with the message `500 Internal Server Error`. 
+I ended up on the /signup page and attempted to login with `admin@goodgames.htb:admin` and was taken to a page with the message `500 Internal Server Error`. 
 
 [<img src="../images/good_games/500.png"
   style="width: 800px;"/>](../images/good_games/500.png)
@@ -50,8 +50,8 @@ With confirmed sql injection I saved the request from burp and passed it to sqlm
 sqlmap -r test.req --batch --dump --threads 10
 ```
   
-[<img src="../images/good_games/sql_map.png"
-  style="width: 800px;"/>](../images/good_games/sql_map.png)
+[<img src="../images/good_games/sqlmap.png"
+  style="width: 800px;"/>](../images/good_games/sqlmap.png)
 
 [<img src="../images/good_games/dump.png"
   style="width: 800px;"/>](../images/good_games/dump.png)
@@ -130,10 +130,13 @@ After a while I realised that as I was root on the docker container, if I could 
 So I thought the easiest way to do this would be to copy the legitimate `/bin/bash` file on the host machine to `/home/augustus` directory.  I then switched back to the root user within the docker container and set ownership of `bin/bash` as root. And made the file a setuid executable.
 
 `chown root:root bash`
-`chmod u+s bash`
+`chmod +s bash`
 
 [<img src="../images/good_games/root_own_bash.png"
   style="width: 800px;"/>](../images/good_games/root_own_bash.png)
+  
+[<img src="../images/good_games/setuid_bash.png"
+  style="width: 800px;"/>](../images/good_games/setuid_bash.png)
   
 I then logged back into SSH with augustus and ran `./bash -p` to retain privileges.
 
