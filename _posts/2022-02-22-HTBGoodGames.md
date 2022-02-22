@@ -127,7 +127,7 @@ I now had a reverse shell which what appeared to be the root user.  I upgraded a
 ```bash
 python3 -c 'import pty; pty.spawn("/bin/bash")'
 ``` 
-and then ctrl+z 
+and then ctrl+z to background the session followed by:
 
 ```bash
 stty raw -echo; fg
