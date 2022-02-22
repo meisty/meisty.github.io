@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Hack the Box GoodGames
+title: HackTheBox GoodGames
 ---
 
-## A writeup of the retired easy box from Hack the Box, GoodGames.  
+## A writeup of the retired easy box from HackTheBox, GoodGames.  
 
 First things first, lets see what ports are open by running a nmap scan.
 
