@@ -94,7 +94,7 @@ As you can see after entering the payload
 ```bash
 7*7
 ```
-Inside curly brackets.  
+Inside double curly brackets \{\{ \}\}.  
 
 For the full name, upon saving this the templating engine has interpreted this as 49.  So we have a SSTI vulnerability we can exploit.  After heading over to [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection) which is a great resource.  Within the SSTI section I found some payloads which could potentially give us RCE or remote code execution. 
 
