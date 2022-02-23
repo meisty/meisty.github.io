@@ -162,7 +162,8 @@ After a while I realised that as I was root on the docker container, if I could 
 
 So I thought the easiest way to do this would be to copy the legitimate `/bin/bash` file on the host machine to `/home/augustus` directory.  I then switched back to the root user within the docker container and set ownership of `bin/bash` as root. And made the file a setuid executable.
 
-`chown root:root bash` \n
+`chown root:root bash`
+
 `chmod +s bash`
 
 [<img src="../images/good_games/root_own_bash.png"
