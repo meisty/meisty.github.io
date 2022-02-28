@@ -8,7 +8,7 @@ title: Emdee Five For Life HTB web challenge writeup
 After checking out the website provided I can see the title `MD5 encrypt this string` and a string below as well as a form to enter the MD5 hashed string and a submit button.  
 
 [<img src="../images/emdee_five_for_life/home.png"
-  style="width: 800px;"/>](../images/home.png)
+  style="width: 800px;"/>](../images/emdee_five_for_life/home.png)
 
 I take the string and turn it into a md5 hash with the terminal:
 
@@ -19,7 +19,7 @@ echo '16dFzpMakCkS9x0FQ9ev' | md5sum
 I then enter the md5 hash into the form and submit, but I am told I am too slow!
 
 [<img src="../images/emdee_five_for_life/too_slow.png"
-  style="width: 800px;"/>](../images/too_slow.png)
+  style="width: 800px;"/>](../images/emdee_five_for_life/too_slow.png)
 
 So I realise its time to create a script to do this quickly. 
 
