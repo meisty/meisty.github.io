@@ -33,9 +33,7 @@ gobuster dir -u http://goodgames.htb -w /usr/share/seclists/discovery/web-conten
 [<img src="../images/good_games/gobuster.png"
   style="width: 800px;"/>](../images/good_games/gobuster.png)
   
-I ended up on the /signup page and attempted to login with 
-```bash admin@goodgames.htb:admin
-``` 
+I ended up on the /signup page and attempted to login with ```admin@goodgames.htb:admin``` 
 and was taken to a page with the message ```500 Internal Server Error```. 
 
 [<img src="../images/good_games/500.png"
@@ -68,12 +66,7 @@ So I had some credentials for the admin account but the password appears to be h
 [<img src="../images/good_games/crackstation.png"
   style="width: 800px;"/>](../images/good_games/crackstation.png)
   
-With the credentials 
-
-```bash
-admin@goodgames.htb:superadministrator
-```` 
-I logged in.  
+With the credentials ```admin@goodgames.htb:superadministrator``` I logged in.  
 
 [<img src="../images/good_games/logged_in_admin.png"
   style="width: 800px;"/>](../images/good_games/logged_in_admin.png)
