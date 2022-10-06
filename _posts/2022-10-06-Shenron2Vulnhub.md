@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Shenron1 Vulnhub machine
+title: Shenron2 Vulnhub machine
 description: Walkthrough and writeup for Shenron2 Vulnhub virtual machine
 ---
 
