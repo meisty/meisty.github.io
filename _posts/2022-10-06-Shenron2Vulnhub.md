@@ -105,7 +105,7 @@ I found the user flag in `/home/shenron/Desktop`
 
 At this point I missed the other file in this folder and went off down a rabbit hole looking for further credentials/vulnerabilities.  I ran linpeas again and found nothing.  I then traced my steps back and found the .pass file in the Desktop folder. 
 
-[<img src="../images/shenron2/shenencrpytpass.png"
+[<img src="../images/shenron2/shenencryptpass.png"
   style="width: 800px;"/>](../images/shenron2/shenencryptpass.png)
 
 A quick run through [cyberchef](https://gchq.github.io/CyberChef/) and I could see it was in base32 and I appeared to have shenrons password (minus the . after a few frustrating attempts to login).
