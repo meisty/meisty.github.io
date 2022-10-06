@@ -30,8 +30,6 @@ Initially the site looked broken so I checked some of the links `shenron:8080/` 
 ```
 sudo vi /etc/hosts
 ```
-[<img src="../images/shenron2/etchosts.png"
-  style="width: 800px;"/>](../images/shenron2/etchosts.png)
 
 Now the site looks better time to enumerate.
 
