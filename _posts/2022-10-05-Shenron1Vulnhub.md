@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Shenron1 Vulnhub machine
+description: Walkthrough and writeup for Shenron1 Vulnhub virtual machine
 ---
 
 ## Writeup of the [Shenron1](https://www.vulnhub.com/entry/shenron-1,630/) Vulnhub machine
