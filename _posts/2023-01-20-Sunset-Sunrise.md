@@ -129,7 +129,7 @@ Checking my listener I had a shell.
 
 Checking the root folder I found the root flag.
 
-[<img src="../images/sunrise/root.png"
-  style="width: 800px;"/>](../images/sunrise/root.png)
+[<img src="../images/sunrise/roottxt.png"
+  style="width: 800px;"/>](../images/sunrise/roottxt.png)
 
 There we have it.  First blog post of 2023.  Lets hope there will be many more this year.  Hack the planet!
