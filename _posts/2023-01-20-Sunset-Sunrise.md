@@ -91,9 +91,6 @@ I checked GTFObins for any way to exploit this, but found nothing.  A quick goog
 
 [exploit_wine_with_msfvenom](https://www.hacknos.com/wine-privilege-escalation/)
 
-[<img src="../images/sunrise/usertxt.png"
-  style="width: 800px;"/>](../images/sunrise/usertxt.png)
-
 Turns out I could pass a malicious `exe` file to win to gain a root shell.  Lets give it a go.  First I had to generate a malicious payload with msfvenom:
 
 ```bash
