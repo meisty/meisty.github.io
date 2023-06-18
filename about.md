@@ -11,7 +11,3 @@ I have always had an interest in security especially around web applications.  B
 I am constantly learning new things every day and I am hoping one day to make a career out of this or to at least be able to do more within my current job.  In the meantime I am just enjoying my new hobby and learning new skills. 
 
 I try to update my blog as often as possible.  So please check back for further posts and walkthroughs. 
-
-### Contact me
-
-[shaundixonuk@gmail.com](mailto:shaundixonuk@gmail.com)
