@@ -47,13 +47,13 @@ This would find any files matching the pattern flag+anything and then cat the co
 
 Obviously I would need someone to approve my pull request before it could be merged.  Damn.  But when looking in the open pull requests I spotted one from the author turner.  I could add some code to his PR and because it had been opened by him I would be able to approve the pull request and then merge it.
 
-[<img src="../images/nahamcon2023/approvepr.png"
-  style="width: 800px;"/>](../images/nahamcon2023/approvepr.png)
-
 [<img src="../images/nahamcon2023/turnersprpirate.png"
   style="width: 800px;"/>](../images/nahamcon2023/turnersprpirate.png)
 
 I added my commit to tuners branch, approved the pull request and then merged it.
+
+[<img src="../images/nahamcon2023/approvepr.png"
+  style="width: 800px;"/>](../images/nahamcon2023/approvepr.png)
 
 [<img src="../images/nahamcon2023/merged.png"
   style="width: 800px;"/>](../images/nahamcon2023/merged.png)
