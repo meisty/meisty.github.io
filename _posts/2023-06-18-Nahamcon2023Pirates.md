@@ -65,7 +65,7 @@ After a few seconds I refreshed the page on the drone CI page and I saw my pipel
 
 Lets check in the output to see if we have the flag. 
 
-[<img src="../images/nahamcon2023/flagpirate.png"
-  style="width: 800px;"/>](../images/nahamcon2023/flagpirate.png)
+[<img src="../images/nahamcon2023/flag.png"
+  style="width: 800px;"/>](../images/nahamcon2023/flag.png)
 
 Thanks for taking the time to read this, I will be adding a few more writeups from the Nahamcon 2023 CTF over the coming days.
