@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Nahamcon 2023 CTF - medium devops challenge - Pirates
+title: Nahamcon 2023 CTF - Pirates
 description: Writeup of the medium devops challenge Pirates from Nahamcon 2023 CTF
 ---
 
