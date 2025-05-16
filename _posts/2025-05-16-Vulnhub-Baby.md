@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Vulnlab Baby
+title: Vulnlab - Baby Walkthrough
 ---
 
 ## A writeup of Baby from Vulnlab
