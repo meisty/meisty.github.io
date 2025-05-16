@@ -8,7 +8,7 @@ title: Vulnlab - Baby Walkthrough
 [<img src="../images/baby/vulnlab_baby.png"
   style="width: 800px;"/>](../images/baby/vulnlab_baby.png)
 
-I have always heard good things about Vulnlab and I have always wanted to try some of the machines available.  This month I finally got myself a subscription and gave Baby, an easy Windows Machine
+I have always heard good things about Vulnlab and I have always wanted to try some of the machines available.  This month I finally got myself a subscription and gave Baby, an easy Windows Machine a go.  This is the writeup for this machine. 
 
 
 ## Nmap
