@@ -9,6 +9,12 @@
   overflow: auto;
 }
 
+.highlight pre {
+  white-space: pre-wrap;     // Change from pre
+  overflow-x: hidden;        // Change from auto or scroll
+  word-break: break-word;
+}
+
 code {
   font-family:'Bitstream Vera Sans Mono','Courier', monospace;
   color: #00cc00;
