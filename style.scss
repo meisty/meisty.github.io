@@ -304,6 +304,18 @@ code {
   box-sizing: border-box;
 }
 
+.highlight pre {
+  white-space: pre-wrap !important;
+  overflow-x: hidden !important;
+  word-break: break-word !important;
+}
+
+pre {
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+  overflow-x: hidden !important;
+}
+
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import "highlights";
