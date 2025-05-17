@@ -269,6 +269,13 @@ nav {
     text-transform: uppercase;
     font-size: 15px;
   }
+
+  img {
+  display: block;      /* Make image a block element */
+  margin: 0 auto;     /* Auto left/right margins to center */
+  max-width: 100%;    /* Ensure images don't overflow container */
+  height: auto;       /* Maintain aspect ratio */
+  }
 }
 
 .post {
