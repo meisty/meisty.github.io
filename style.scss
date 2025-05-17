@@ -271,6 +271,14 @@ nav {
   }
 }
 
+.post {
+  max-width: 900px;  /* or whatever width you want */
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;    /* optional padding */
+  box-sizing: border-box;
+}
+
 .wrapper-footer {
   margin-top: 50px;
   border-top: 1px solid #ddd;
