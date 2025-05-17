@@ -25,7 +25,7 @@ body {
 
 .container {
   margin: 0 auto;
-  max-width: 1028px;
+  max-width: 740px;
   padding: 0 10px;
   width: 100%;
 }
@@ -269,21 +269,6 @@ nav {
     text-transform: uppercase;
     font-size: 15px;
   }
-
-  img {
-  display: block;      /* Make image a block element */
-  margin: 0 auto;     /* Auto left/right margins to center */
-  max-width: 100%;    /* Ensure images don't overflow container */
-  height: auto;       /* Maintain aspect ratio */
-  }
-}
-
-.post {
-  max-width: 1028px;  /* or whatever width you want */
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 20px;    /* optional padding */
-  box-sizing: border-box;
 }
 
 .wrapper-footer {
@@ -296,39 +281,6 @@ nav {
 footer {
   padding: 20px 0;
   text-align: center;
-}
-
-/* Code blocks: wrap long lines, remove horizontal scrollbars */
-pre {
-  white-space: pre-wrap;       /* Wrap lines */
-  word-wrap: break-word;       /* Break long words */
-  overflow-x: auto;            /* Optional: scroll only when really necessary */
-}
-
-/* Optional: better formatting for inline code blocks */
-code {
-  word-break: break-word;
-}
-
-/* Fix horizontal scrollbars in syntax-highlighted code blocks */
-.highlight pre, .highlight code, pre, code {
-  white-space: pre-wrap !important;
-  word-break: break-word !important;
-  overflow-x: hidden !important;
-  max-width: 100% !important;
-  box-sizing: border-box;
-}
-
-.highlight pre {
-  white-space: pre-wrap !important;
-  overflow-x: hidden !important;
-  word-break: break-word !important;
-}
-
-pre {
-  white-space: pre-wrap !important;
-  word-break: break-word !important;
-  overflow-x: hidden !important;
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
